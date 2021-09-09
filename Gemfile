@@ -17,6 +17,17 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
+
+# My gems
+# A library for generating fake data such as names
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+# The Devise Gem is users for User Authentication, It creates sign-up and sign-in forms, it also can be used to create user accounts for privacy.
+gem 'devise'
+# To work with Postgresql databases
+gem "pg", ">= 0.18", "< 2.0"
+# An XML toolkit for Ruby
+gem 'rexml', '~> 3.2.4'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

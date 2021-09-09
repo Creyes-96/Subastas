@@ -1,0 +1,2 @@
+module Product::BidsHelper
+end
