@@ -44,27 +44,35 @@ ActiveRecord::Schema.define(version: 2021_09_09_155516) do
   end
 
   create_table "product_bids", force: :cascade do |t|
+    t.float "amount"
+    t.datetime "bid_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "products_id"
+    t.index ["products_id"], name: "index_product_bids_on_products_id"
   end
 
   create_table "product_reviews", force: :cascade do |t|
+    t.text "review"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "products_id"
+    t.index ["products_id"], name: "index_product_reviews_on_products_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.float "price"
+    t.datetime "limit_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "username", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -76,9 +84,11 @@ ActiveRecord::Schema.define(version: 2021_09_09_155516) do
     t.index ["first_name"], name: "index_users_on_first_name"
     t.index ["last_name"], name: "index_users_on_last_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["username"], name: "index_users_on_username", unique: true
+    t.index ["username"], name: "index_users_on_username"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "product_bids", "products", column: "products_id"
+  add_foreign_key "product_reviews", "products", column: "products_id"
 end

@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+ .imagen{
+     height: 250px;
+     width: 350px;
+ }
+
+ .thumbnail{
+     height: 50px;
+     width: 80px;
+ }
+
+ .tarjeta{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+ }
