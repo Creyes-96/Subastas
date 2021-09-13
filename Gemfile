@@ -28,6 +28,8 @@ gem "pg", ">= 0.18", "< 2.0"
 # An XML toolkit for Ruby
 gem 'rexml', '~> 3.2.4'
 
+#############gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

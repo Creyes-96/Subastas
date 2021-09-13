@@ -1,9 +1,10 @@
 <template>
     <div id="app">
-        <div>
+        
 
         <p>{{ message }}</p>
-        <label for="name">Name</label>
+        <productos/>
+        <!--<label for="name">Name</label>
         <input type="text"  class="name" placeholder="Write the product name...">
 
         <label for="description">Description</label>
@@ -16,16 +17,17 @@
         <input type="file" id="image" accept="image/png, image/jpeg"><br><br>
 
         <input type="submit">
-        </div>
+        </div>-->
     </div>
 </template>
 
 <script>
+import productos from './productos.vue'
 export default {
-    props: ["name","description"],
+  components: { productos },
     data: function () {
         return {
-            message: "Products form with Vue"
+            message: "Products list  with Vue"
         }
     }
 }

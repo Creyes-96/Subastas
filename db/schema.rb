@@ -45,11 +45,12 @@ ActiveRecord::Schema.define(version: 2021_09_09_155516) do
 
   create_table "product_bids", force: :cascade do |t|
     t.float "amount"
-    t.datetime "bid_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "products_id"
+    t.bigint "users_id"
     t.index ["products_id"], name: "index_product_bids_on_products_id"
+    t.index ["users_id"], name: "index_product_bids_on_users_id"
   end
 
   create_table "product_reviews", force: :cascade do |t|
@@ -67,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_09_09_155516) do
     t.datetime "limit_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_products_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,5 +93,7 @@ ActiveRecord::Schema.define(version: 2021_09_09_155516) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "product_bids", "products", column: "products_id"
+  add_foreign_key "product_bids", "users", column: "users_id"
   add_foreign_key "product_reviews", "products", column: "products_id"
+  add_foreign_key "products", "users", column: "users_id"
 end
