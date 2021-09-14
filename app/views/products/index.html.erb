@@ -1,25 +1,31 @@
 <p id="notice"><%= notice %></p>
-<%= javascript_pack_tag 'hello_vue' %>
 <h1>Products</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
+        <th class="">ID</th>
         <th class="">Name</th>
         <th class="">Description</th>
         <th class="">Price</th>
         <th class="">Product</th>
-        <th colspan="4"></th>
+        <th class="">Limit date</th>
+        <th class="">Vendedor</th>
+        <th colspan="7"></th>
     </tr>
   </thead>
 
   <tbody>
         <% @products.each do |product| %>
             <tr>
+                <td class=""><%= product.id %></td>
                 <td class=""><%= product.name %></td>
                 <td class=""><%= product.description %></td>
                 <td class=""><%= product.price %></td>
-                
+                <td class=""><%= image_tag(product.image, class:'thumbnail') %></td>
+                <td class=""><%= product.limit_date %></td>
+                <td class=""><%= product.user.username %></td>
+                <td><%= link_to '<i class="fas fa-sack-dollar"></i>'.html_safe, new_product_bid_url(product) %></td>
                 <td><%= link_to 'Show', product %></td>
                 <td><%= link_to 'Edit', edit_product_path(product) %></td>
                 <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,6 +37,8 @@
 <br>
 
 <%= link_to 'New Product', new_product_path %>
+
+
 
 
 

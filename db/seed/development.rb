@@ -10,10 +10,11 @@ user = User.create_with(
     :email                 => "carlos_mlb_reyes@hotmail.com",
 )
 
+
 product = Product.create(
-    name: "Cubo de Rubik", 
-    description: "Un desafío entretenido", 
-    price: 120,
-    limit_date: '2021-10-12', 
+    name: "PC Gaming", 
+    description: "Una pc dedicada a gaming", 
+    price: 430,
+    limit_date: '2021-12-12', 
     users_id: 1
 )

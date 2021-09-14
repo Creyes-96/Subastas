@@ -1,0 +1,38 @@
+<% name = current_user.present? ? current_user.email : 'Guest' %>
+<% name2 = current_user.present? ? current_user.username : 'Guest' %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Lomax Technologies</a><br>
+    <p class="m-auto">You are logged as: <%= name2 %></p>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+            <li class="nav-item" >
+                <%= link_to 'Store', products_path, class: 'nav-link'%>
+            </li>
+        <% if user_signed_in? %>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">My products</a></li>
+            <li><a class="dropdown-item" href="#">Edit profile</a></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'dropdown-item'%></li>
+
+          </ul>
+        </li>
+
+        <% else %>
+
+            <li class="nav-item" >
+            <%= link_to 'Sign in', new_user_session_path, class: 'nav-link'%>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

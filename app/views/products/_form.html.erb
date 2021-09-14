@@ -1,4 +1,3 @@
-<%= javascript_pack_tag 'hello_vue' %>
 <%= form_with(model: product) do |form| %>
     <% if product.errors.any? %>
         <div id="error_explanation">
@@ -30,6 +29,11 @@
     <div class="field">
         <%= form.label :image %>
         <%= form.file_field :image %>
+    </div>
+
+    <div class="field">
+        <%= form.label :limit_date %>
+        <%= form.datetime_select :limit_date %>
     </div>
 
     <div class="actions">

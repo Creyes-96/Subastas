@@ -15,6 +15,15 @@
     <%= @product.price %>
 </p>
 
+<div>
+    <%= image_tag(@product.image, class:'imagen') %>
+</div>
+
+<p>
+    <strong>Limit date:</strong>
+    <%= @product.limit_date %>
+</p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Back', products_path %> |
+<%= link_to 'Bids', product_bids_url(@product,@bids) %> |

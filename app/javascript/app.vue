@@ -24,12 +24,14 @@
 <script>
 import productos from './productos.vue'
 export default {
-  components: { productos },
-    data: function () {
-        return {
-            message: "Products list  with Vue"
+    
+    components: { productos },
+        data: function () {
+            return {
+                message: "Products list  with Vue",
+    
+            }
         }
-    }
 }
 
 </script>

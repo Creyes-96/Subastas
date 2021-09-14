@@ -1,3 +1,4 @@
 class Product < ApplicationRecord
-    #has_one_attached :image
+    belongs_to :user, foreign_key: 'users_id' 
+    has_one_attached :image
 end

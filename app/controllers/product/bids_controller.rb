@@ -4,15 +4,18 @@ class Product::BidsController < ApplicationController
   # GET /product/bids or /product/bids.json
   def index
     @product_bids = Product::Bid.all
+    @product_imagen = Product.find_by_id(params[:product_id])
   end
 
   # GET /product/bids/1 or /product/bids/1.json
   def show
+    @productshow = Product.find_by_id(params[:product_id])
   end
 
   # GET /product/bids/new
   def new
     @product_bid = Product::Bid.new
+    @productnew = Product.find_by_id(params[:product_id])
   end
 
   # GET /product/bids/1/edit
@@ -22,10 +25,12 @@ class Product::BidsController < ApplicationController
   # POST /product/bids or /product/bids.json
   def create
     @product_bid = Product::Bid.new(product_bid_params)
+    @product_bid.product = Product.find_by_id(params[:product_id])
+    @product_bid.user = current_user
 
     respond_to do |format|
       if @product_bid.save
-        format.html { redirect_to @product_bid, notice: "Bid was successfully created." }
+        format.html { redirect_to product_bids_url, notice: "Bid was successfully created." }
         format.json { render :show, status: :created, location: @product_bid }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,6 +69,6 @@ class Product::BidsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_bid_params
-      params.fetch(:product_bid, {})
+      params.fetch(:product_bid, {}).permit(:amount)
     end
 end
