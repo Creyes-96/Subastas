@@ -13,6 +13,45 @@
  *= require_tree .
  *= require_self
  */
+ .view-title{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.datepicker{
+    width: 100px;
+}
+
+.button {
+    background-color: #cbbde2;
+    border-radius: 4px;
+    color:white;
+    width: 100%;
+    border-color: #cbbde2;
+}
+
+.button:hover {
+    background-color: #563d7c;
+}
+   
+ .navbar{
+     color: white;
+ }
+ .navbar-purple{
+     background-color: #563d7c;
+ }
+
+ .nav-link{
+     color: #cbbde2;
+ }
+
+ .nav-link:hover{
+    color:white;
+}
+
+ .navbar-brand{
+     color: white;
+ }
 
  .imagen{
      height: 250px;
@@ -24,11 +63,51 @@
      width: 80px;
  }
 
- .tarjeta{
+ .row{
      display: flex;
-     flex-direction: row;
      justify-content: center;
  }
+
+ .details{
+     display: flex;
+     flex-direction: column;
+     width: 280px;
+     margin: 20px 50px;
+     border: 1px solid black;
+     border-radius: 5px;
+     background-color: #fcfcfc;
+     box-shadow: 7px 7px 5px #aaaaaa;
+ }
+
+ .details-img{
+    width: 100%;
+    height: 150px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+ }
+
+ .icons{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+     margin: 10px 0;
+ }
+
+ .fas{
+     color: #cbbde2;
+ }
+
+ .fas:hover{
+    color: #563d7c;
+}
+
+.far{
+    color: #cbbde2;
+}
+
+.far:hover{
+   color: #563d7c;
+}
 
  .tarjeta-imagen{
      padding: 0 10px;
@@ -37,4 +116,5 @@
  li{
      margin-right: 50px;
  }
+
 

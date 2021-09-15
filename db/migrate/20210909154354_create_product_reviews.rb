@@ -5,5 +5,6 @@ class CreateProductReviews < ActiveRecord::Migration[6.1]
             t.timestamps
         end
         add_reference :product_reviews, :products, foreign_key:true
+        add_reference :product_reviews, :users, foreign_key:true
     end
 end

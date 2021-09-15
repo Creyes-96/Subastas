@@ -1,5 +1,6 @@
-<p id="notice"><%= notice %></p>
-<h1>Products</h1>
+<%= notice %>
+<h1 class="view-title">Products for sale</h1>
+<!--<h1>Products</h1>
 
 <table class="table">
   <thead>
@@ -36,7 +37,28 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path %>-->
+
+<section class="container">
+    <div class="row">
+        <% @products.each do |product| %>
+            <div class="details">
+                <span><%= image_tag(product.image, class:'details-img') %></span>
+                <h4><%= product.name %></p></h4>
+                <p><%= product.description %></p>
+                <p>USD <%= product.price %></p>
+                <p>Ends in: <%= product.limit_date %></p>
+                <p>Seller: <%= product.user.username %></p>
+                <div class="icons">
+                    <span><%= link_to '<i class="fas fa-sack-dollar fa-3x"></i>'.html_safe, new_product_bid_url(product) %></span>
+                    <span><%= link_to '<i class="far fa-edit fa-3x"></i>'.html_safe, edit_product_path(product) %></span>
+                    <span><%= link_to '<i class="fas fa-trash-alt fa-3x"></i>'.html_safe, product, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</section>
+
 
 
 

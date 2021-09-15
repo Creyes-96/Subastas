@@ -11,12 +11,19 @@
         </div>
     <% end %>
 
-    <div class="field">
-        <%= form.label :amount %>
-        <%= form.number_field :amount %>
+    <div class="col-4 offset-2">
+
+        <div class="input-group input-group-bid mb-3">
+            <%= form.label :amount, class:"input-group-text" %>
+            <%= form.number_field :amount, class:"form-control" %>
+        </div>
+
+        <div class="button-bid">
+            <div class="actions">
+                <%= form.submit class: "button btn btn-primary btn-lg" %>
+            </div>
+        </div>
+        
     </div>
 
-    <div class="actions">
-        <%= form.submit %>
-    </div>
 <% end %>

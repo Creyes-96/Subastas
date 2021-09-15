@@ -1,6 +1,18 @@
-<h1>New Bid</h1>
-
-<span><%= image_tag(@productnew.image, class:'thumbnail') %></span>
+<h1 class="view-title">New Bid</h1>
+<div class="bid-actions-back">
+    <%= link_to '<i class="fas fa-chevron-circle-left fa-3x"></i>'.html_safe, products_path %>
+</div>
+<div class="bid-container">
+    <div class="bid-details">
+        <p>Product: <%=@productnew.name%></p>
+        <p>Description: <%=@productnew.description%></p>
+        <p>Base price: <%=@productnew.price%> USD</p>
+        <p>Actual bid: $****.**</p>
+    </div>
+    <span><%= image_tag(@productnew.image, class:'bid-thumbnail') %></span>
+</div>
 <%= render 'form', product_bid: @product_bid %>
 
-<%= link_to 'Back', product_bids_path %>
+<div class="bid-actions">
+    <%= link_to 'Bids history', product_bids_path %>
+</div>

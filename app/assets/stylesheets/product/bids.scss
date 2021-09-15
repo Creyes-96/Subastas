@@ -1,3 +1,49 @@
 // Place all the styles related to the product/bids controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.bid-container{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bid-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.bid-thumbnail{
+    width: 500px;
+    height: 320px;
+}
+
+.button-bid {
+    background-color: #cbbde2;
+    border-radius: 4px;
+    color:white;
+    width: 60%;
+    border-color: #cbbde2;
+    margin-top: 10px;
+}
+
+.input-group-bid{
+    width: 60%;
+}
+
+.button-bid:hover {
+    background-color: #563d7c;
+}
+
+.bid-button-container{
+    display: flex;
+    justify-content: center;
+}
+
+.bid-actions{
+    margin-left: 370px;
+}
+
+.bid-actions-back{
+    margin-left: 75px;
+}

@@ -9,12 +9,3 @@ user = User.create_with(
 ).find_or_create_by(
     :email                 => "carlos_mlb_reyes@hotmail.com",
 )
-
-
-product = Product.create(
-    name: "PC Gaming", 
-    description: "Una pc dedicada a gaming", 
-    price: 430,
-    limit_date: '2021-12-12', 
-    users_id: 1
-)
