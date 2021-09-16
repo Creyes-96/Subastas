@@ -11,7 +11,10 @@
     </div>
     <span><%= image_tag(@productnew.image, class:'bid-thumbnail') %></span>
 </div>
-<%= render 'form', product_bid: @product_bid %>
+
+    <%= render 'form', product_bid: @product_bid %>
+
+
 
 <div class="bid-actions">
     <%= link_to 'Bids history', product_bids_path %>

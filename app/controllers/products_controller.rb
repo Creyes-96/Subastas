@@ -8,6 +8,10 @@ class ProductsController < ApplicationController
     @products = Product.all.order(:id)
   end
 
+  def mysales
+    @items = Product.where(users_id: params[:user_id])
+  end
+
   # GET /products/1 or /products/1.json
   def show
   end

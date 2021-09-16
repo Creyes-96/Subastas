@@ -1,0 +1,30 @@
+<h1 class="view-title">My items for sale</h1>
+
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+        <th class="">ID</th>
+        <th class="">Name</th>
+        <th class="">Description</th>
+        <th class="">Price</th>
+        <th colspan="7"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+        <% @items.each do |item| %>
+            <tr>
+                <td class=""><%= item.id %></td>
+                <td class=""><%= item.name %></td>
+                <td class=""><%= item.description %></td>
+                <td class=""><%= item.price %></td>
+                <td class=""><%= link_to '<i class="fas fa-sack-dollar"></i>'.html_safe, new_product_bid_url(item) %></td>
+                <td class=""><%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_product_path(item) %></td>
+                <td class=""><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<br>
