@@ -7,12 +7,12 @@
         <p>Product: <%=@productnew.name%></p>
         <p>Description: <%=@productnew.description%></p>
         <p>Base price: <%=@productnew.price%> USD</p>
-        <p>Actual bid: $****.**</p>
+        
     </div>
     <span><%= image_tag(@productnew.image, class:'bid-thumbnail') %></span>
 </div>
 
-    <%= render 'form', product_bid: @product_bid %>
+<%= render 'form', product_bid: @product_bid %>
 
 
 
