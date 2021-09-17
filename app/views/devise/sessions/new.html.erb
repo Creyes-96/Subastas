@@ -1,26 +1,38 @@
-<h2>Log in</h2>
+<div class="profilePicture">
+    <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" 
+    alt="Cheetah!" style="width:150px;height:150px;" class="center"/>
+</div>
 
+<div class="col-4 offset-4">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="input-group mb-3">
+        <%= f.label :email, class:"input-group-text" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
+    <div class="input-group mb-3">
+        <%= f.label :password, class:"input-group-text" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+        <div class="input-group mb-3">
+            <div class="remember">
+                <div class="input-group mb-3">
+                    <%= f.check_box :remember_me %>
+                    <%= f.label :remember_me, class: "pad" %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+    <div class="actions">
+        <%= f.submit "Log in", class: "button btn btn-primary btn-lg" %>
+    </div>
+    
 <% end %>
-
-<%= render "devise/shared/links" %>
+<div class="view-title">
+    <%= render "devise/shared/links" %>
+</div>
+</div>

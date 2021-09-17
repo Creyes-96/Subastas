@@ -12,9 +12,17 @@
             
         <% else %>
             <p><strong>Major bid: <%=@product_bids.amount %> USD</strong></p>
-		    <p><strong>Winner: <%=@product_bids.user.username %></strong></p>
+		    <p><strong>By: <%=@product_bids.user.username %></strong></p>
         <% end %>
-        <p><strong>Deadline: <%=@productnew.limit_date %> USD</strong></p>
+        <p><strong>Deadline: <%=@productnew.limit_date %> </strong></p>
+
+        <% if DateTime.now > @productnew.limit_date %>
+            <p><strong>Winner: <%=@product_bids.user.username %></strong></p>
+            <p class="passedBid">We are sorry, this product is no longer <br> available. Please comeback later.</p>
+        <% else %>
+            <p class="inProgressBid">In progress!</p>
+        <% end %>
+        
         
     </div>
     <span><%= image_tag(@productnew.image, class:'bid-thumbnail') %></span>

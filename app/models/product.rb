@@ -14,6 +14,7 @@ class Product < ApplicationRecord
     def expiration_date_cannot_be_in_the_past
         if limit_date < DateTime.now
             errors.add(:limit_date, "can't be in the past")
+            raise ActiveRecord::Rollback 
         end
     end 
 end

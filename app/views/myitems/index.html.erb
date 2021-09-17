@@ -1,12 +1,20 @@
 <h1 class="view-title">My items for sale</h1>
-
+<div class="profilePicture">
+    <img src="https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png" 
+    alt="Cheetah!" style="width:150px;height:150px;" class="center"/>
+</div>
+<div class="bid-actions-back">
+    <%= link_to '<i class="fas fa-chevron-circle-left fa-3x"></i>'.html_safe, products_path %>
+</div>
 <table class="table table-hover table-striped">
-  <thead>
+  <thead class="table-purple">
     <tr>
         <th class="">ID</th>
         <th class="">Name</th>
         <th class="">Description</th>
         <th class="">Price</th>
+        <th class="">Product</th>
+        <th class="">Deadline</th>
         <th colspan="7"></th>
     </tr>
   </thead>
@@ -14,13 +22,16 @@
   <tbody>
         <% @items.each do |item| %>
             <tr>
-                <td class=""><%= item.id %></td>
-                <td class=""><%= item.name %></td>
-                <td class=""><%= item.description %></td>
-                <td class=""><%= item.price %></td>
-                <td class=""><%= link_to '<i class="fas fa-sack-dollar"></i>'.html_safe, new_product_bid_url(item) %></td>
-                <td class=""><%= link_to '<i class="far fa-edit"></i>'.html_safe, edit_product_path(item) %></td>
-                <td class=""><%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class="align-middle"><%= item.id %></td>
+                <td class="align-middle"><%= item.name %></td>
+                <td class="align-middle"><%= item.description %></td>
+                <td class="align-middle"><%= item.price %></td>
+                <td class="align-middle"><%= image_tag(item.image, class:'thumbnail') %></td>
+                <td class="align-middle"><%= item.limit_date%></td>
+        
+                <td class="align-middle"><%= link_to '<i class="fas fa-eye icon fa-3x"></i>'.html_safe, product_bids_path(item) %></td>
+                <td class="align-middle"><%= link_to '<i class="far fa-edit fa-3x"></i>'.html_safe, edit_product_path(item) %></td>
+                <td class="align-middle"><%= link_to '<i class="fas fa-trash-alt fa-3x"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
             </tr>
         <% end %>

@@ -14,7 +14,8 @@
  *= require_self
  */
  .view-title{
-    margin-top: 15px;
+    margin-top: 30px;
+    margin-bottom: 25px;
     text-align: center;
 }
 
@@ -131,3 +132,50 @@
     width: 400px;
  }
 
+.profilePicture{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+.remember{
+    margin-left: 200px;
+    padding: 0 15px;
+}
+
+.pad{
+    padding: 0 10px;
+}
+
+.passed{
+    color: red;
+}
+
+.inProgress{
+    font-weight: bold;
+    text-align: center;
+    color: green;
+}
+
+.passed{
+    font-weight: bold;
+    text-align: center;
+    color: red;
+}
+
+.inProgressBid{
+    font-weight: bold;
+    color: green;
+}
+
+.passedBid{
+    font-weight: bold;
+    color: red;
+}

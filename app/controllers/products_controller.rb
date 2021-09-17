@@ -6,6 +6,8 @@ class ProductsController < ApplicationController
     p Product.all.order(:id).to_sql
     p "*************"
     @products = Product.all.order(:id)
+    @x = Product::Bid.order(:amount).last
+    
   end
 
   def mysales
@@ -23,6 +25,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+
   end
 
   # POST /products or /products.json
@@ -44,7 +47,7 @@ class ProductsController < ApplicationController
     def update
         respond_to do |format|
         if @product.update(product_params)
-            format.html { redirect_to @product, notice: "Product was successfully updated." }
+            format.html { redirect_to myitems_path, notice: "Product was successfully updated." }
             format.json { render :show, status: :ok, location: @product }
         else
             format.html { render :edit, status: :unprocessable_entity }

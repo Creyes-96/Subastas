@@ -49,10 +49,19 @@
                 <p>USD <%= product.price %></p>
                 <p>Ends in: <%= product.limit_date %></p>
                 <p>Seller: <%= product.user.username %></p>
+
+                <% if DateTime.now > product.limit_date  %>
+                    <p class="passed">Bid's over :(</p>
+                <% else %>
+                    <p class="inProgress">In progress!</p>
+                <% end %>
+                
+                
+               
                 <div class="icons">
                     <span><%= link_to '<i class="fas fa-sack-dollar fa-3x"></i>'.html_safe, new_product_bid_url(product) %></span>
-                    <span><%= link_to '<i class="far fa-edit fa-3x"></i>'.html_safe, edit_product_path(product) %></span>
-                    <span><%= link_to '<i class="fas fa-trash-alt fa-3x"></i>'.html_safe, product, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+                    <!--<span><%= link_to '<i class="far fa-edit fa-3x"></i>'.html_safe, edit_product_path(product) %></span>
+                    <span><%= link_to '<i class="fas fa-trash-alt fa-3x"></i>'.html_safe, product, method: :delete, data: { confirm: 'Are you sure?' } %></span>-->
                 </div>
             </div>
         <% end %>

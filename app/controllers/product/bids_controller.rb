@@ -24,6 +24,7 @@ class Product::BidsController < ApplicationController
     
     # GET /product/bids/1/edit
     def edit
+        @product_imagen_edit = Product.find_by_id(params[:product_id])
     end
     
     # POST /product/bids or /product/bids.json
@@ -37,7 +38,7 @@ class Product::BidsController < ApplicationController
         if user_signed_in? 
             respond_to do |format|
                 if @product_bid.save
-                    format.html { redirect_to new_product_bid_url, notice: "Congratulations! Your bid has been placed." }
+                    format.html { redirect_to new_product_bid_url, notice: "Congratulations! Your bid has been placed successfully." }
                     format.json { render :show, status: :created, location: @product_bid }
                 else
                     format.html { render :new, status: :unprocessable_entity }
