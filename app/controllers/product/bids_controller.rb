@@ -11,13 +11,15 @@ class Product::BidsController < ApplicationController
     # GET /product/bids/1 or /product/bids/1.json
     def show
         @productshow = Product.find_by_id(params[:product_id])
+        
     end
     
     # GET /product/bids/new
     def new
         @product_bid = Product::Bid.new
         @productnew = Product.find_by_id(params[:product_id])
-        
+        @product_bids_max = Product::Bid.order(:amount).where(products_id: params[:product_id])
+        @product_bids = Product::Bid.order(:amount).where(products_id: params[:product_id]).last
     end
     
     # GET /product/bids/1/edit
@@ -26,18 +28,26 @@ class Product::BidsController < ApplicationController
     
     # POST /product/bids or /product/bids.json
     def create
+        @product_bids_max = Product::Bid.order(:amount).where(products_id: params[:product_id])
+        @product_bids = Product::Bid.order(:amount).where(products_id: params[:product_id]).last
         @product_bid = Product::Bid.new(product_bid_params)
         @product_bid.product = Product.find_by_id(params[:product_id])
         @product_bid.user = current_user
         @productnew = Product.find_by_id(params[:product_id])
-        
-        respond_to do |format|
-            if @product_bid.save
-                format.html { redirect_to product_bids_url, notice: "Bid was successfully created." }
-                format.json { render :show, status: :created, location: @product_bid }
-            else
-                format.html { render :new, status: :unprocessable_entity }
-                format.json { render json: @product_bid.errors, status: :unprocessable_entity }
+        if user_signed_in? 
+            respond_to do |format|
+                if @product_bid.save
+                    format.html { redirect_to new_product_bid_url, notice: "Congratulations! Your bid has been placed." }
+                    format.json { render :show, status: :created, location: @product_bid }
+                else
+                    format.html { render :new, status: :unprocessable_entity }
+                    format.json { render json: @product_bid.errors, status: :unprocessable_entity }
+                end
+            end
+        else
+            respond_to do |format|
+                format.html { redirect_to new_product_bid_url, alert: "You must be Signed in to make a bid." }
+                format.json { head :no_content }
             end
         end
     end

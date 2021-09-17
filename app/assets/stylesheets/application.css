@@ -116,5 +116,18 @@
  li{
      margin-right: 50px;
  }
+ .table {
+    
+    margin: 40px auto;
+    width: 85% !important; 
+ }
 
+ .table-purple{
+     background-color: #f4edff;
+ }
+
+ .thumbnail-bid-preview{
+    height: 200px;
+    width: 400px;
+ }
 

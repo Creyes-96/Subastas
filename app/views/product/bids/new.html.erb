@@ -4,9 +4,17 @@
 </div>
 <div class="bid-container">
     <div class="bid-details">
-        <p>Product: <%=@productnew.name%></p>
-        <p>Description: <%=@productnew.description%></p>
-        <p>Base price: <%=@productnew.price%> USD</p>
+        <p>Product: <%=@productnew.name %></p>
+        <p>Description: <%=@productnew.description %></p>
+        <p>Base price: <%=@productnew.price %> USD</p>
+        
+        <% if @product_bids.nil?  %>
+            
+        <% else %>
+            <p><strong>Major bid: <%=@product_bids.amount %> USD</strong></p>
+		    <p><strong>Winner: <%=@product_bids.user.username %></strong></p>
+        <% end %>
+        <p><strong>Deadline: <%=@productnew.limit_date %> USD</strong></p>
         
     </div>
     <span><%= image_tag(@productnew.image, class:'bid-thumbnail') %></span>
