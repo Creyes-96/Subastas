@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'hello_vue' %>
 <%= notice %>
 <h1 class="view-title">Products for sale</h1>
 <!--<h1>Products</h1>
@@ -46,10 +47,17 @@
                 <span><%= image_tag(product.image, class:'details-img') %></span>
                 <h4><%= product.name %></p></h4>
                 <p><%= product.description %></p>
+                <p>ID <%= product.id %></p>
                 <p>USD <%= product.price %></p>
-                <p>Ends in: <%= product.limit_date %></p>
+                <p>Deadline: <%= product.limit_date.strftime('%d/%m/%Y at %H:%M') %></p>
                 <p>Seller: <%= product.user.username %></p>
 
+                <!--<% if @major_bid.nil?%>
+                    <p>There is no bid by the moment.</p>
+                <% else %>
+                    <p>Major bid: <%= @major_bid.amount %></p>
+                <% end %>-->
+                
                 <% if DateTime.now > product.limit_date  %>
                     <p class="passed">Bid's over :(</p>
                 <% else %>

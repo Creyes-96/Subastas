@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'products_form' %>
 <%= form_with(model: product) do |form| %>
     <% if product.errors.any? %>
         <div id="error_explanation">
@@ -24,7 +25,7 @@
 
         <div class="input-group mb-3">
             <%= form.label :price, class:"input-group-text" %>
-            <%= form.number_field :price, class:"form-control" %>
+            <%= form.text_field :price, class:"form-control" %>
         </div>
 
         <div class="input-group mb-3">

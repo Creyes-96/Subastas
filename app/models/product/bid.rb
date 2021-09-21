@@ -6,6 +6,8 @@ class Product::Bid < ApplicationRecord
     after_save :bid_enough
     before_save :bid_enough_actual
 
+    validates :amount, presence: true, allow_blank: false
+
     protected
     # Validates the bid amount
     def bid_enough

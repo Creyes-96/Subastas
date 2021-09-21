@@ -4,9 +4,13 @@
     <h1>Bids received</h1>
     <span><h1><%= image_tag(@product_imagen.image, class:'thumbnail-bid-preview') %></h1></span>
 </div>
+<% if user_signed_in? %>
 <div class="bid-actions-back">
     <%= link_to '<i class="fas fa-chevron-circle-left fa-3x"></i>'.html_safe, myitems_path %>
 </div>
+
+<% end %>
+
 
 <table class="table table-hover table-striped">
     <thead class="table-purple">

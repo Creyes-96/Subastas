@@ -3,6 +3,11 @@ class Product < ApplicationRecord
     validate :expiration_date_cannot_be_in_the_past
     belongs_to :user, foreign_key: 'users_id' 
     has_one_attached :image
+
+    validates :name, presence: true, allow_blank: false
+    validates :description, presence: true, allow_blank: false
+    validates :price, presence: true, allow_blank: false
+    validates :limit_date, presence: true, allow_blank: false
     
     validates :price, :numericality => { :greater_than_or_equal_to => 0 }
     

@@ -28,7 +28,7 @@ export default {
     components: { productos },
         data: function () {
             return {
-                message: "Products list  with Vue",
+                message: "Products list with Vue",
     
             }
         }
