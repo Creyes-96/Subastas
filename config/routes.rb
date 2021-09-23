@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
     resources :products do
         scope module: :product do
             resources :bids

@@ -1,50 +1,14 @@
 <%= javascript_pack_tag 'hello_vue' %>
 <%= notice %>
 <h1 class="view-title">Products for sale</h1>
-<!--<h1>Products</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-        <th class="">ID</th>
-        <th class="">Name</th>
-        <th class="">Description</th>
-        <th class="">Price</th>
-        <th class="">Product</th>
-        <th class="">Limit date</th>
-        <th class="">Vendedor</th>
-        <th colspan="7"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-        <% @products.each do |product| %>
-            <tr>
-                <td class=""><%= product.id %></td>
-                <td class=""><%= product.name %></td>
-                <td class=""><%= product.description %></td>
-                <td class=""><%= product.price %></td>
-                <td class=""><%= image_tag(product.image, class:'thumbnail') %></td>
-                <td class=""><%= product.limit_date %></td>
-                <td class=""><%= product.user.username %></td>
-                <td><%= link_to '<i class="fas fa-sack-dollar"></i>'.html_safe, new_product_bid_url(product) %></td>
-                <td><%= link_to 'Show', product %></td>
-                <td><%= link_to 'Edit', edit_product_path(product) %></td>
-                <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Product', new_product_path %>-->
 
 <section class="container">
     <div class="row">
         <% @products.each do |product| %>
             <div class="details">
-                <span><%= image_tag(product.image, class:'details-img') %></span>
+ 
+                
                 <h4><%= product.name %></p></h4>
                 <p><%= product.description %></p>
                 <p>ID <%= product.id %></p>
@@ -52,11 +16,11 @@
                 <p>Deadline: <%= product.limit_date.strftime('%d/%m/%Y at %H:%M') %></p>
                 <p>Seller: <%= product.user.username %></p>
 
-                <!--<% if @major_bid.nil?%>
+                <% if @major_bid.nil?%>
                     <p>There is no bid by the moment.</p>
                 <% else %>
                     <p>Major bid: <%= @major_bid.amount %></p>
-                <% end %>-->
+                <% end %>
                 
                 <% if DateTime.now > product.limit_date  %>
                     <p class="passed">Bid's over :(</p>

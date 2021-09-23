@@ -6,6 +6,10 @@ window.axios = require('axios');
 // Creamos una propiedad global para axios 
 Vue.prototype.$axios = axios
 
+import * as ActiveStorage from "@rails/activestorage"
+ActiveStorage.start()
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const productform = new Vue({
     render: h => h(ProductsForm)

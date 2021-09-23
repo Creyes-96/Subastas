@@ -1,7 +1,7 @@
 <template>
-    <div id="products_form">
+    <div id="products_form_edit">
         <h2>{{ title }}</h2>
-        <form enctype="multipart/form-data" @submit.prevent="submitForm">
+        <form @submit.prevent="submitForm" enctype="multipart/form-data">
             <label for="name">Name</label>
             <input type="text"  class="name" placeholder="Write the product name..." v-model="product.name">
 
@@ -15,11 +15,6 @@
             <input type="datetime-local" id="limit_date" name="limit_date"  v-model="product.limit_date"> 
                 
             <label for="image">Select a image of the product</label>
-    
-           
-
-            <input type=file data-direct-upload-url="<%= rails_direct_uploads_url %>" /><br><br>
-
 
             <button class="btn btn-primary">Submit</button>
         </form>
@@ -34,49 +29,45 @@
     
         data: function () {
         return {
-            title: "Add new product - Vue Form",
-        
+            title: "Editing a product",
+            
             // Campos 
             product: {
                 name: '',
                 description: '',
                 price: '',
                 limit_date: '',
-                image: null,
-                /*id: '',
+                /*image: null
+                id: '',
                 users_id: ''*/
             }
         }
-
         },
         methods: {
-            uploadFile: function() {
+            /*onFileSelected(event){
+                console.log(event)
                 this.product.image = this.$refs.inputFile.files[0];
-            },
+            },*/
             submitForm(){
-                console.log("Entrando al método POST")
+                console.log("Entrando al método Put - Update")
 
                 const token = document.querySelector('[name=csrf-token]').content
                 axios.defaults.headers.common['X-CSRF-TOKEN'] = token
+
+                
 
                 const data = {
                     product: this.product
                 }
 
-                axios.post("http://localhost:3000/products", data).then(function (response) {
+                axios.put("http://localhost:3000/products/${}", data).then(function (response) {
                     console.log(response)
-                    alert("Producto creado exitosamente.")
+                    alert("Producto editado exitosamente.")
                 })
             }
         },
-        // Leemos los datos JSON con axios 
         mounted() {
-        /*axios
-            .get("http://localhost:3000/products")
-            .then(response => {
-                this.data = response.data;
-                console.log(this.data); 
-            });*/
+
         },
     
     }

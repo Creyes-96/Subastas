@@ -1,8 +1,9 @@
 class Product < ApplicationRecord
-    validate :check_file_presence
+    #validate :check_file_presence
     validate :expiration_date_cannot_be_in_the_past
     belongs_to :user, foreign_key: 'users_id' 
     has_one_attached :image
+    has_many :product_bid, dependent: :restrict_with_error, class_name: 'Product::Bid', foreign_key: 'products_id'
 
     validates :name, presence: true, allow_blank: false
     validates :description, presence: true, allow_blank: false
@@ -22,4 +23,5 @@ class Product < ApplicationRecord
             raise ActiveRecord::Rollback 
         end
     end 
+
 end
